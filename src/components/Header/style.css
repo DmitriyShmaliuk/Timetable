@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Modak|Yanone+Kaffeesatz:400,700&display=swap');
+
+header{
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: rgb(5, 1, 48);
+}
+
+header > section{
+    min-width: 1260px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .title, header .authorization{
+    cursor: pointer;
+}
+
+header .title{
+    font-family: 'Modak', cursive;
+    font-size : 24px;
+    line-height: 100%;
+}
+
+header .authorization, header nav{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+}
+
+header .authorization{
+    height: 100%;
+}
+
+header > section > nav{
+    flex-basis: 35%;
+}
+
+header > section > nav > ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+header > section > nav > ul > li{
+    list-style: none;
+}
