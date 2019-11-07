@@ -1,10 +1,18 @@
 import React from 'react';
-import Header from './components/Header/index'
+import Home from './components/Home/index'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import MainTimetable from './components/MainTimetable';
 
 function App() {
   return (
     <div className="App">
-        <Header />
+        <Router>
+            <Home>
+                <Switch>
+                    <Route exact path = "/" component = {MainTimetable}/>
+                </Switch>
+            </Home>
+        </Router>
     </div>
   );
 }
