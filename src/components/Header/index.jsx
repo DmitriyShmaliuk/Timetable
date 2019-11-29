@@ -3,7 +3,7 @@ import './style.css';
 
 function Header (){
     return(
-        <header>
+        <header id="mainHeader">
             <section>
                 <div className="title">
                     <span>Timetable</span>
