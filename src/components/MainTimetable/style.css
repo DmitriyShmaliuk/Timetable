@@ -13,3 +13,20 @@
 #changeBtn{
     margin-top: 20px;
 }
+
+.time-table p{
+    margin: 0;
+}
+
+.time-table td{
+    height: 74px;
+}
+
+.time-table td{
+    position: relative;
+}
+
+span.lecture-hall{
+    position: absolute;
+    right: 16px;
+}
