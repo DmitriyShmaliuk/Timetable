@@ -1,53 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { Table, Button} from 'antd';
+import {connect} from 'react-redux';
 import 'antd/dist/antd.css';
 import "./style.css";
-
-const columns=[
-    {
-        title: 'П-21',
-        dataIndex: 'p21',
-        key: 'p21',
-        render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-            <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
-    },
-    {
-        title: 'П-22',
-        dataIndex: 'p22',
-        key: 'p22',
-        render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-            <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
-    },
-    {
-        title: 'П-31',
-        dataIndex: 'p31',
-        key: 'p31',
-        render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-            <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
-    },
-    {
-        title: 'П-32',
-        dataIndex: 'p32',
-        key: 'p32',
-        render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-            <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
-    },
-    {
-        title: 'П-41',
-        dataIndex: 'p41',
-        key: 'p41',
-        render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-            <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
-    },
-    {
-        title: 'П-42',
-        dataIndex: 'p42',
-        key: 'p42',
-        render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-            <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
-    },
-
-];
 
 const data = [
     {
@@ -97,15 +52,15 @@ const data = [
     }
 ];
 
-function MainTimetable(){
+function MainTimetable({tables}){
     return(
         <div className="content"> 
             <div className="time-table">
-                <Table columns={columns} dataSource = {data} pagination = {false} bordered getPopupContainer = {()=>'Here is popup'}/>
-                <Table columns={columns} dataSource = {data} pagination = {false} bordered/>
-                <Table columns={columns} dataSource = {data} pagination = {false} bordered/>
-                <Table columns={columns} dataSource = {data} pagination = {false} bordered/>
-                <Table columns={columns} dataSource = {data} pagination = {false} bordered/>
+                <Table columns={tables[0].columns} dataSource = {data} pagination = {false} bordered/>
+                <Table columns={tables[1].columns} dataSource = {data} pagination = {false} bordered/>
+                <Table columns={tables[2].columns} dataSource = {data} pagination = {false} bordered/>
+                <Table columns={tables[3].columns} dataSource = {data} pagination = {false} bordered/>
+                <Table columns={tables[4].columns} dataSource = {data} pagination = {false} bordered/>
             </div>
 
             <div id="changeBtn">
@@ -115,4 +70,6 @@ function MainTimetable(){
     );
 }
 
-export default MainTimetable;
+export default connect (state =>({
+    tables: state.tables
+}),{})(MainTimetable);
