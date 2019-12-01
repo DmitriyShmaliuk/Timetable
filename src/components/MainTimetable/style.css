@@ -1,3 +1,94 @@
 .content{
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 85vh;
+    margin: 10px auto 0  auto;
+}
+
+.content .item{
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+}
+
+.content .item:hover{
+    color: #0066aa;
+}
+
+.time-table{
+    margin-top: 10px;
+    width: 100%;
+    background: #fff;   
+}
+
+.time-table th{
+    width: 400px;
+}
+
+#changeBtn{
+    margin-top: 20px;
+}
+
+.time-table p{
+    margin: 0;
+}
+
+.time-table td{
+    height: 74px;
+}
+
+.time-table td{
+    position: relative;
+}
+
+span.lecture-hall{
+    position: absolute;
+    right: 16px;
+}
+
+.change-form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    height: 500px;
+    margin: -250px 0 0 -350px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #000000;
+    background: #ffffff;
+}
+
+.change-form header{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    font-family: sans-serif;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.change-form #closeIcon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+ 
+.change-form section > *{
+    margin-bottom: 10px;
+}
+
+.change-form #submitBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#errorMessage{
+    position: fixed;
+    top: 20px;
+    z-index: 4;
 }

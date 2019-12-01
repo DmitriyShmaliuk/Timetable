@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Modak|Yanone+Kaffeesatz:400,700&display=swap');
 
-header{
+header#mainHeader{
     width: 100%;
     height: 70px;
-    position: fixed;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,42 +10,48 @@ header{
     background: rgb(5, 1, 48);
 }
 
-header > section{
-    min-width: 1260px;
+header#mainHeader > section{
+    width: 90vw;
     padding: 0 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header .title, header .authorization{
+header#mainHeader .title, header#mainHeader .authorization{
     cursor: pointer;
 }
 
-header .title{
+header#mainHeader .title{
     font-family: 'Modak', cursive;
     font-size : 24px;
     line-height: 100%;
 }
 
-header .authorization, header nav{
+header#mainHeader .authorization, header#mainHeader nav{
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 20px;
 }
 
-header .authorization{
+header#mainHeader .authorization{
     height: 100%;
 }
 
-header > section > nav{
+header#mainHeader > section > nav{
     flex-basis: 35%;
+    height: 30px;
 }
 
-header > section > nav > ul{
+header#mainHeader > section > nav > ul{
     display: flex;
     justify-content: space-between;
 }
 
-header > section > nav > ul > li{
+header#mainHeader > section > nav > ul > li{
+    padding: 0 5px;
     list-style: none;
+}
+
+header#mainHeader > section  a{
+    color: inherit;
 }
