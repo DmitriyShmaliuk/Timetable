@@ -13,7 +13,7 @@ const configureStore = PreloaderState =>(
         RootReaducer,
         PreloaderState,
         composeEnhancers(
-            applyMiddleware(save({namespace: 'timtable'}))
+            applyMiddleware(save({namespace: 'timetable'}))
         ),
     )
 );
