@@ -1,0 +1,1 @@
+export const CHANGE_TIMETABLE = 'CHANGE_TIMETABLE';
