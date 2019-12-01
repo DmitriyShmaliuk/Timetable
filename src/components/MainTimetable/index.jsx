@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-import { Table, Button, Breadcrumb, Select, Input, Icon} from 'antd';
+import React, {Fragment, useState} from 'react';
+import { Table, Button, Breadcrumb, Select, Input, Icon, Form, Alert} from 'antd';
+import {changeTimetable} from '../../actions/actionCreator';
 import {connect} from 'react-redux';
 import 'antd/dist/antd.css';
 import "./style.css";
@@ -48,13 +49,41 @@ const disciplines =[{
     value: "П'ята",
 }];
 
-function MainTimetable({tables}){
+function MainTimetable(props){
     const [tableIndex, setTableIndex] = useState(0);
     const [isDisplayForm, setIsDisplayForm] = useState(false);
-    const [data, setData] = useState({day: '', group: '', disciplines: '',
+    const [isErrorMessage, setIsErrorMessage] = useState(false);
+    const [data, setData] = useState({day: undefined, group: undefined, disciplines: undefined,
         name: '', teacher: '', audience: ''});
 
+    props.tables.forEach(el=>el.columns.forEach(el=>el.render = text => <Fragment><p>{text.name}</p>
+        <span>{text.teacher}</span><span className = "lecture-hall">{text.lectureHall}</span></Fragment>));
+
+    const closeForm = function(){
+        const newData = data;
+    
+        newData.day = undefined;
+        newData.group = undefined;
+        newData.disciplines = undefined;
+        newData.name = '';
+        newData.teacher = '';
+        newData.audience = '';
+
+        setIsDisplayForm(false);
+        setData(newData);
+    }
+
     const changeTimetable = function (){
+        if(!data.day || !data.group || !data.disciplines){
+            setIsErrorMessage(true);
+            setTimeout(setIsErrorMessage, 4000, false);
+            return;
+        }
+
+        const {changeTimetable} = props;
+
+        changeTimetable(data.day,data.disciplines,data.group,data.name,data.teacher,data.audience,tableIndex);
+        closeForm();
     }
 
     const handlerChangeDay = function (value){
@@ -95,6 +124,11 @@ function MainTimetable({tables}){
 
     return(
         <div className="content">
+            <div id="errorMessage" style={{display: isErrorMessage?"block":"none"}}>
+                <Alert message="Помилка" description="Заповніть поля: 'День', 'Група', 'Пара'"
+                    type="error" showIcon/>
+            </div>
+
             <Breadcrumb mode="horizontal">
                 <Breadcrumb.Item className="item" onClick={()=>setTableIndex(0)}>Електрифікація та інформаційні системи</Breadcrumb.Item>
                 <Breadcrumb.Item className="item" onClick={()=>setTableIndex(1)}>Агрономія</Breadcrumb.Item>
@@ -104,21 +138,21 @@ function MainTimetable({tables}){
             </Breadcrumb>
 
             <div className="time-table">
-                <Table columns={tables[tableIndex].columns} dataSource = {tables[tableIndex].monday} pagination = {false} bordered/>
-                <Table columns={tables[tableIndex].columns} dataSource = {tables[tableIndex].tuesday} pagination = {false} bordered/>
-                <Table columns={tables[tableIndex].columns} dataSource = {tables[tableIndex].wednesday} pagination = {false} bordered/>
-                <Table columns={tables[tableIndex].columns} dataSource = {tables[tableIndex].thursday} pagination = {false} bordered/>
-                <Table columns={tables[tableIndex].columns} dataSource = {tables[tableIndex].friday} pagination = {false} bordered/>
+                <Table columns={props.tables[tableIndex].columns} dataSource={props.tables[tableIndex].monday} pagination = {false} bordered/>
+                <Table columns={props.tables[tableIndex].columns} dataSource={props.tables[tableIndex].tuesday} pagination = {false} bordered/>
+                <Table columns={props.tables[tableIndex].columns} dataSource={props.tables[tableIndex].wednesday} pagination = {false} bordered/>
+                <Table columns={props.tables[tableIndex].columns} dataSource={props.tables[tableIndex].thursday} pagination = {false} bordered/>
+                <Table columns={props.tables[tableIndex].columns} dataSource={props.tables[tableIndex].friday} pagination = {false} bordered/>
             </div>
 
             <div id="changeBtn">
                 <Button id="changeBtn" size="large" type="danger" ghost onClick={()=>setIsDisplayForm(true)}>Змінити розклад</Button>
             </div>
 
-            <form className="change-form" style={{display: isDisplayForm?"block":"none"}}>
+            <Form className="change-form" style={{display: isDisplayForm?"block":"none"}}>
                 <header>
                     <h2>Змінити розклад</h2>
-                    <Icon id="closeIcon" type="close" onClick={()=>setIsDisplayForm(false)}/>
+                    <Icon id="closeIcon" type="close" onClick={closeForm}/>
                 </header>
 
                 <section id="mainData">
@@ -127,7 +161,7 @@ function MainTimetable({tables}){
                     </Select>
 
                     <Select id="group" placeholder="Оберіть групу" size="large" onChange={handlerChangeGroup}>
-                        {tables[tableIndex].columns.map(el => <Option value={el.key} key={el.key}>{el.title}</Option>)}
+                        {props.tables[tableIndex].columns.map(el => <Option value={el.key} key={el.key}>{el.title}</Option>)}
                     </Select>
 
                     <Select id="disciplines" placeholder="Оберіть пару" size="large" onChange={handlerChangeDisciplines}>
@@ -140,20 +174,23 @@ function MainTimetable({tables}){
                         <h3>Інформація про пару</h3>
                     </header>
 
-                    <Input name="name" placeholder="Назва предмету" size="large" onChange={handlerChangeName}/>
-                    <Input name="teacher" placeholder="Ім'я викладача" size="large" onChange={handlerChangeTeacher}/>
-                    <Input name="audience" placeholder="Номер аудиторії" size="large" onChange={handlerChangeAudience}/>
+                    <Input name="name" placeholder="Назва предмету" size="large" onChange={handlerChangeName} 
+                        allowClear/>
+                    <Input name="teacher" placeholder="Ім'я викладача" size="large" onChange={handlerChangeTeacher} 
+                        allowClear/>
+                    <Input name="audience" placeholder="Номер аудиторії" size="large" onChange={handlerChangeAudience}
+                        allowClear/>
                 </section>
 
                 <section id="submitBtn">
                     <Button type="primary" size="large" style={{width: '125px'}}ghost
                         onClick={changeTimetable}>Змінити</Button>
                 </section>
-            </form>
+            </Form>
         </div>
     );
 }
 
 export default connect (state =>({
     tables: state.tables
-}),{})(MainTimetable);
+}),{changeTimetable})(MainTimetable);

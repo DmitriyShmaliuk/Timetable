@@ -20,6 +20,10 @@
     background: #fff;   
 }
 
+.time-table th{
+    width: 400px;
+}
+
 #changeBtn{
     margin-top: 20px;
 }
@@ -80,4 +84,10 @@ span.lecture-hall{
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+}
+
+#errorMessage{
+    position: fixed;
+    top: 20px;
+    z-index: 4;
 }
