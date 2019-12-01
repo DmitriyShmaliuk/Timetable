@@ -1,48 +1,34 @@
-import React, {Fragment} from 'react';
-
 export default {
     electrics: {
         columns: [{
             title: "П-21",
             dataIndex: "p21",
             key: "p21",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "П-22",
             dataIndex: "p22",
             key: "p22",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "П-31",
             dataIndex: "p31",
             key: "p31",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "П-32",
             dataIndex: "p32",
             key: "p32",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "П-41",
             dataIndex: "p41",
             key: "p41",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "П-42",
             dataIndex: "p42",
             key: "p42",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         }],
         monday: [{
             key: '1',
@@ -284,43 +270,31 @@ export default {
             title: "А-21",
             dataIndex: "a21",
             key: "a21",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "А-22",
             dataIndex: "a22",
             key: "a22",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "А-31",
             dataIndex: "a31",
             key: "a31",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "А-32",
             dataIndex: "a32",
             key: "a32",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "А-41",
             dataIndex: "a41",
             key: "a41",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "А-42",
             dataIndex: "a42",
             key: "a42",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         }],
         monday: [{
             key: '1',
@@ -562,29 +536,21 @@ export default {
             title: "Е-21",
             dataIndex: "e21",
             key: "e21",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "Е-22",
             dataIndex: "e22",
             key: "e22",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "Е-31",
             dataIndex: "e31",
             key: "e31",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "Е-32",
             dataIndex: "e32",
             key: "e32",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         }],
         monday: [{
             key: '1',
@@ -767,43 +733,31 @@ export default {
             title: "Аі-21",
             dataIndex: "ai21",
             key: "ai21",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "Аі-22",
             dataIndex: "ai22",
             key: "ai22",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "Аі-31",
             dataIndex: "ai31",
             key: "ai31",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "Аі-32",
             dataIndex: "ai32",
             key: "ai32",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "Аі-41",
             dataIndex: "ai41",
             key: "a41",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "Аі-42",
             dataIndex: "ai42",
             key: "ai42",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         }],
         monday: [{
             key: '1',
@@ -1045,43 +999,31 @@ export default {
             title: "БЦІ-21",
             dataIndex: "bci21",
             key: "bci21",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "БЦІ-22",
             datbcindex: "bci22",
             key: "bci22",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "БЦІ-31",
             datbcindex: "bci31",
             key: "bci31",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "БЦІ-32",
             datbcindex: "bci32",
             key: "bci32",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "БЦІ-41",
             datbcindex: "bci41",
             key: "a41",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         },
         {
             title: "БЦІ-42",
             datbcindex: "bci42",
             key: "bci42",
-            render: text => <Fragment><p>{text.name}</p><span>{text.teacher}</span>
-                <span className = "lecture-hall">{text.lectureHall}</span></Fragment>,
         }],
         monday: [{
             key: '1',
