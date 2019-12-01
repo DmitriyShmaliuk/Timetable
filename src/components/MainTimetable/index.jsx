@@ -53,28 +53,18 @@ function MainTimetable(props){
     const [tableIndex, setTableIndex] = useState(0);
     const [isDisplayForm, setIsDisplayForm] = useState(false);
     const [isErrorMessage, setIsErrorMessage] = useState(false);
-    const [data, setData] = useState({day: undefined, group: undefined, disciplines: undefined,
+    const [data, setData] = useState({day: '', group: '', disciplines: '',
         name: '', teacher: '', audience: ''});
 
     props.tables.forEach(el=>el.columns.forEach(el=>el.render = text => <Fragment><p>{text.name}</p>
         <span>{text.teacher}</span><span className = "lecture-hall">{text.lectureHall}</span></Fragment>));
 
     const closeForm = function(){
-        const newData = data;
-    
-        newData.day = undefined;
-        newData.group = undefined;
-        newData.disciplines = undefined;
-        newData.name = '';
-        newData.teacher = '';
-        newData.audience = '';
-
         setIsDisplayForm(false);
-        setData(newData);
     }
 
     const changeTimetable = function (){
-        if(!data.day || !data.group || !data.disciplines){
+        if(data.day==='' || data.group==='' || data.disciplines===''){
             setIsErrorMessage(true);
             setTimeout(setIsErrorMessage, 4000, false);
             return;
@@ -132,9 +122,9 @@ function MainTimetable(props){
             <Breadcrumb mode="horizontal">
                 <Breadcrumb.Item className="item" onClick={()=>setTableIndex(0)}>Електрифікація та інформаційні системи</Breadcrumb.Item>
                 <Breadcrumb.Item className="item" onClick={()=>setTableIndex(1)}>Агрономія</Breadcrumb.Item>
-                <Breadcrumb.Item className="item" onClick={()=>setTableIndex(2)}>Економічне</Breadcrumb.Item>
-                <Breadcrumb.Item className="item" onClick={()=>setTableIndex(3)}>Агроінженерія</Breadcrumb.Item>
-                <Breadcrumb.Item className="item" onClick={()=>setTableIndex(4)}>Будівництво та цивільна інженерія</Breadcrumb.Item>
+                <Breadcrumb.Item className="item" onClick={()=>setTableIndex(2)}>Агроінженерія</Breadcrumb.Item>
+                <Breadcrumb.Item className="item" onClick={()=>setTableIndex(3)}>Будівництво та цивільна інженерія</Breadcrumb.Item>
+                <Breadcrumb.Item className="item" onClick={()=>setTableIndex(4)}>Економічне</Breadcrumb.Item>
             </Breadcrumb>
 
             <div className="time-table">
@@ -164,8 +154,9 @@ function MainTimetable(props){
                         {props.tables[tableIndex].columns.map(el => <Option value={el.key} key={el.key}>{el.title}</Option>)}
                     </Select>
 
-                    <Select id="disciplines" placeholder="Оберіть пару" size="large" onChange={handlerChangeDisciplines}>
-                        {disciplines.map(el => <Option value={el.key} key={el.key}>{el.value}</Option>)}
+                    <Select id="disciplines" placeholder="Оберіть пару" size="large" 
+                        onChange={handlerChangeDisciplines}>
+                            {disciplines.map(el => <Option value={el.key} key={el.key}>{el.value}</Option>)}
                     </Select>
                 </section>
 
@@ -175,11 +166,11 @@ function MainTimetable(props){
                     </header>
 
                     <Input name="name" placeholder="Назва предмету" size="large" onChange={handlerChangeName} 
-                        allowClear/>
+                        autocomplete="off" allowClear/>
                     <Input name="teacher" placeholder="Ім'я викладача" size="large" onChange={handlerChangeTeacher} 
-                        allowClear/>
+                        autocomplete="off" allowClear/>
                     <Input name="audience" placeholder="Номер аудиторії" size="large" onChange={handlerChangeAudience}
-                        allowClear/>
+                        autocomplete="off" allowClear/>
                 </section>
 
                 <section id="submitBtn">
