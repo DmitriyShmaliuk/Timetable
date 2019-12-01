@@ -1,8 +1,10 @@
 import React from "react";
+import {Avatar} from "antd";
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './style.css';
 
-function Header (){
+function Header ({user}){
     return(
         <header id="mainHeader">
             <section>
@@ -19,11 +21,15 @@ function Header (){
                 </nav>
 
                 <div className = "authorization">
-                    <Link to="autorization">Увійти</Link>
+                    <Link to="autorization">
+                        <Avatar icon="user" />        
+                    </Link>
                 </div>
             </section>
         </header>
     );
 }
 
-export default Header;
+export default connect (state =>({
+    user: state.user
+}),{})(Header);
