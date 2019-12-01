@@ -8,8 +8,8 @@ const disciplines = ['first','second','third','fourth','fifth'];
 
 if(!TABLES || !TABLES.tables || !TABLES.tables.length){
      TABLES = {
-        tables: [BaseData.electrics, BaseData.agronomy, BaseData.economics, 
-            BaseData.agroEngineering, BaseData.buildingEngenering]
+        tables: [BaseData.electrics, BaseData.agronomy, BaseData.agroEngineering, 
+            BaseData.buildingEngenering, BaseData.economics,]
      }
 };
 
