@@ -1261,3 +1261,24 @@ export default {
         ]
     }
 }
+
+export const defaultUsers = [
+    {
+        type: "administrator",
+        login: 'programmer_wk',
+        name: "Shmaliuk Dmytro",
+        password: "programmer_wk",
+    },
+    {
+        type: "teacher",
+        login: "alibrian",
+        name: "Sobolevskiy Dmytro",
+        password: "123123",
+    },
+    {
+        type: "student",
+        login: "Bortovskiy123",
+        name: "Bortovskiy Andriy",
+        password: "321321",
+    }
+];
