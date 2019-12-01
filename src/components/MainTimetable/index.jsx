@@ -135,9 +135,9 @@ function MainTimetable(props){
                 <Table columns={props.tables[tableIndex].columns} dataSource={props.tables[tableIndex].friday} pagination = {false} bordered/>
             </div>
 
-            <div id="changeBtn">
+            {props.user.type === 'administrator' && <div id="changeBtn">
                 <Button id="changeBtn" size="large" type="danger" ghost onClick={()=>setIsDisplayForm(true)}>Змінити розклад</Button>
-            </div>
+            </div>}
 
             <Form className="change-form" style={{display: isDisplayForm?"block":"none"}}>
                 <header>
@@ -166,11 +166,11 @@ function MainTimetable(props){
                     </header>
 
                     <Input name="name" placeholder="Назва предмету" size="large" onChange={handlerChangeName} 
-                        autocomplete="off" allowClear/>
+                        autoComplete="off" allowClear/>
                     <Input name="teacher" placeholder="Ім'я викладача" size="large" onChange={handlerChangeTeacher} 
-                        autocomplete="off" allowClear/>
+                        autoComplete="off" allowClear/>
                     <Input name="audience" placeholder="Номер аудиторії" size="large" onChange={handlerChangeAudience}
-                        autocomplete="off" allowClear/>
+                        autoComplete="off" allowClear/>
                 </section>
 
                 <section id="submitBtn">
@@ -183,5 +183,6 @@ function MainTimetable(props){
 }
 
 export default connect (state =>({
-    tables: state.tables
+    tables: state.tables,
+    user: state.user
 }),{changeTimetable})(MainTimetable);

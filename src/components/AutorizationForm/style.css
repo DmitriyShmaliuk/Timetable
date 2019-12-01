@@ -1,0 +1,28 @@
+.content{
+    position: relative;
+}
+
+#autorization, #userInformation{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 250px;
+    margin: -100px 0 0 -200px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 1px 3px #000000;
+}
+
+#autorization > h2, #userInformation > h2{
+    text-align: center;
+}
+
+#autorization > *:not(h2){
+    margin-bottom: 30px;
+}
+
+#userInformation > p{
+    font-size: 16px;
+}

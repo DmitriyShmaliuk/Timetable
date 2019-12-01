@@ -2,7 +2,7 @@
 
 header#mainHeader{
     width: 100%;
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,6 +52,6 @@ header#mainHeader > section > nav > ul > li{
     list-style: none;
 }
 
-header#mainHeader > section > nav a{
+header#mainHeader > section  a{
     color: inherit;
 }
