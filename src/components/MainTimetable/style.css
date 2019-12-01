@@ -5,6 +5,15 @@
     margin: 10px auto 0  auto;
 }
 
+.content .item{
+    color: rgb(128, 128, 128);
+    cursor: pointer;
+}
+
+.content .item:hover{
+    color: #0066aa;
+}
+
 .time-table{
     margin-top: 10px;
     width: 100%;

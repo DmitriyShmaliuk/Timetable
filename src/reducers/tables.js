@@ -5,11 +5,8 @@ let TABLES = load({namespace: 'timetable'});
 
 if(!TABLES || !TABLES.tables || !TABLES.tables.length){
      TABLES = {
-        tables: [{columns: BaseData.columns, data: BaseData.monday},
-                {columns: BaseData.columns, data: BaseData.tuesday},
-                {columns: BaseData.columns, data: BaseData.wednesday},
-                {columns: BaseData.columns, data: BaseData.thursday},
-                {columns: BaseData.columns, data: BaseData.friday}]
+        tables: [BaseData.electrics, BaseData.agronomy, BaseData.economics, 
+            BaseData.agroEngineering, BaseData.buildingEngenering]
      }
 };
 
