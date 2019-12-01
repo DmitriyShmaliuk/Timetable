@@ -19,7 +19,7 @@ function Header (){
                 </nav>
 
                 <div className = "authorization">
-                    Увійти
+                    <Link to="autorization">Увійти</Link>
                 </div>
             </section>
         </header>
