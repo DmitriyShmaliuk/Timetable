@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import './style.css';
 
 function Header (){
@@ -11,9 +12,9 @@ function Header (){
 
                 <nav>
                     <ul>
-                        <li>Головна</li>
-                        <li>Розклад на сьогодні</li>
-                        <li>Розклад на завтра</li>
+                        <li><Link to="/">Головна</Link></li>
+                        <li><Link to="/today">Розклад на сьогодні</Link></li>
+                        <li><Link to="/tomorrow">Розклад на завтра</Link></li>
                     </ul>
                 </nav>
 

@@ -51,3 +51,7 @@ header#mainHeader > section > nav > ul > li{
     padding: 0 5px;
     list-style: none;
 }
+
+header#mainHeader > section > nav a{
+    color: inherit;
+}
